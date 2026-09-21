@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jev Trader</title>
+<link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo">JT</span>
+    <div>
+      <h1>Jev Trader</h1>
+      <p class="sub">Jev decides · you set the risk</p>
+    </div>
+  </div>
+  <span id="modeBadge" class="badge paper">PAPER</span>
+</header>
+
+<section class="card" id="connCard">
+  <div class="row between">
+    <div class="conn-status">
+      <span id="connDot" class="dot idle"></span>
+      <span id="connText">Checking Kite session…</span>
+    </div>
+    <button id="loginBtn" class="btn small hidden">Log in to Kite</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Setup</h2>
+  <label class="field">
+    <span>TypeSafe API key</span>
+    <div class="row">
+      <input id="jevKey" type="password" placeholder="ts_…" autocomplete="off" />
+      <button id="saveKeyBtn" class="btn small">Save</button>
+    </div>
+  </label>
+  <label class="field">
+    <span>Stock (NSE)</span>
+    <input id="symbolInput" type="text" placeholder="Search, e.g. RELIANCE" autocomplete="off" />
+    <div id="symbolResults" class="results hidden"></div>
+    <div class="picked">Selected: <strong id="pickedSymbol">RELIANCE</strong> <span id="pickedLtp" class="ltp"></span></div>
+  </label>
+  <div class="grid2">
+    <label class="field"><span>Spend limit (₹)</span><input id="spendLimit" type="number" min="1000" step="500" /></label>
+    <label class="field"><span>Max loss (₹)</span><input id="maxLoss" type="number" min="100" step="100" /></label>
+    <label class="field"><span>Interval</span>
+      <select id="intervalSel">
+        <option value="1m">1 minute</option>
+        <option value="5m" selected>5 minutes</option>
+        <option value="15m">15 minutes</option>
+      </select>
+    </label>
+    <label class="field"><span>Risk level</span>
+      <select id="riskSel">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+    </label>
+  </div>
+  <label class="check"><input id="paperToggle" type="checkbox" checked /> Paper trading <em>(simulated fills — on by default)</em></label>
+  <label class="check"><input id="shortToggle" type="checkbox" /> Allow short selling <em>(off by default — Jev only goes long)</em></label>
+</section>
+
+<section class="card">
+  <div class="row">
+    <button id="startBtn" class="btn primary">▶ Start</button>
+    <button id="stopBtn" class="btn danger" disabled>■ Stop</button>
+  </div>
+  <p class="hint">Trading runs while this panel stays open. Closing it stops the bot (fail-safe).</p>
+</section>
+
+<section class="card">
+  <h2>Status</h2>
+  <div class="stats">
+    <div><span>Position</span><strong id="stPosition">—</strong></div>
+    <div><span>Unrealized P&amp;L</span><strong id="stUnreal">—</strong></div>
+    <div><span>Session P&amp;L</span><strong id="stSession">—</strong></div>
+    <div><span>Trades</span><strong id="stTrades">0</strong></div>
+    <div><span>Spend used</span><strong id="stSpend">₹0</strong></div>
+    <div><span>Last Jev call</span><strong id="stJev">—</strong></div>
+  </div>
+  <div id="lastDecision" class="decision hidden"></div>
+</section>
+
+<section class="card">
+  <h2>Log</h2>
+  <div id="log" class="log"></div>
+</section>
+
+<script type="module" src="js/sidepanel.js"></script>
+</body>
+</html>

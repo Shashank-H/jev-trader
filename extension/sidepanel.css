@@ -1,0 +1,99 @@
+:root {
+  --bg: #0f1419;
+  --card: #1a222b;
+  --line: #2a3542;
+  --text: #e8eef4;
+  --muted: #8b98a5;
+  --accent: #1d9bf0;
+  --green: #00ba7c;
+  --red: #f4212e;
+  --amber: #ffd400;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding: 12px;
+}
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 12px;
+}
+.brand { display: flex; gap: 10px; align-items: center; }
+.logo {
+  width: 36px; height: 36px; border-radius: 9px;
+  background: linear-gradient(135deg, #1d9bf0, #7c3aed);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 15px;
+}
+h1 { font-size: 16px; margin: 0; }
+.sub { margin: 0; color: var(--muted); font-size: 11px; }
+.badge {
+  font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;
+  letter-spacing: 0.06em;
+}
+.badge.paper { background: rgba(0,186,124,.15); color: var(--green); border: 1px solid var(--green); }
+.badge.live { background: rgba(244,33,46,.15); color: var(--red); border: 1px solid var(--red); }
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px; margin-bottom: 12px;
+}
+.card h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 10px; }
+.row { display: flex; gap: 8px; align-items: center; }
+.row.between { justify-content: space-between; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.field { display: block; margin-bottom: 10px; }
+.field > span { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+input[type=text], input[type=password], input[type=number], select {
+  width: 100%; background: var(--bg); border: 1px solid var(--line);
+  color: var(--text); border-radius: 8px; padding: 8px 10px; font-size: 13px;
+}
+input:focus, select:focus { outline: none; border-color: var(--accent); }
+.check { display: flex; gap: 8px; align-items: center; font-size: 12px; }
+.check em { color: var(--muted); font-style: normal; font-size: 11px; }
+.btn {
+  background: var(--line); color: var(--text); border: none;
+  border-radius: 8px; padding: 9px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.btn:hover { filter: brightness(1.15); }
+.btn:disabled { opacity: .4; cursor: default; }
+.btn.small { padding: 6px 10px; font-size: 12px; }
+.btn.primary { background: var(--green); flex: 1; }
+.btn.danger { background: var(--red); flex: 1; }
+.hidden { display: none !important; }
+.hint { color: var(--muted); font-size: 11px; margin: 8px 0 0; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.dot.idle { background: var(--muted); }
+.dot.ok { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.dot.bad { background: var(--red); }
+.conn-status { display: flex; gap: 8px; align-items: center; font-size: 12px; }
+.results {
+  background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+  margin-top: 4px; max-height: 160px; overflow: auto;
+}
+.results div { padding: 7px 10px; cursor: pointer; font-size: 12px; }
+.results div:hover { background: var(--line); }
+.picked { margin-top: 6px; font-size: 12px; color: var(--muted); }
+.picked strong { color: var(--text); }
+.ltp { color: var(--accent); }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stats > div { background: var(--bg); border-radius: 8px; padding: 8px 10px; }
+.stats span { display: block; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.stats strong { font-size: 14px; }
+.pos { color: var(--green); } .neg { color: var(--red); }
+.decision {
+  margin-top: 10px; background: var(--bg); border-left: 3px solid var(--accent);
+  padding: 8px 10px; border-radius: 0 8px 8px 0; font-size: 12px; color: var(--muted);
+}
+.decision b { color: var(--text); }
+.log {
+  background: var(--bg); border-radius: 8px; padding: 8px;
+  height: 180px; overflow-y: auto; font-family: ui-monospace, monospace; font-size: 11px;
+}
+.log div { padding: 2px 4px; border-bottom: 1px solid rgba(255,255,255,.03); }
+.log .t { color: var(--muted); margin-right: 6px; }
+.log .err { color: var(--red); }
+.log .ok { color: var(--green); }
+.log .jev { color: var(--accent); }
